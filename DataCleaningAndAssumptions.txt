@@ -1,0 +1,37 @@
+# Full Moon NYC Dataset: Time Frame and Assumptions
+
+## Time frame and structure
+
+The dataset covers nights beginning **January 1, 2020 through December 30, 2025**. Each row represents one night in one of New York City’s five boroughs.
+
+A night starts at **8:00 p.m.** and ends immediately before **4:00 a.m.** the next day. The row is labeled with the date the night starts. For example, events from January 1 at 8:00 p.m. through January 2 at 3:59 a.m. are counted under January 1.
+
+The end date keeps the following morning within the 2025 coverage of the historic police and dog-bite datasets.
+
+## How the data was collected
+
+The NYC datasets were queried through the public NYC Open Data API without an app token. The queries asked the API to count matching records by date, borough, and time period. The returned counts were combined into the CSV.
+
+The file contains **aggregated counts**, not the original individual incident records. It does not retain every record’s ID, exact time, location, or description.
+
+## Incident counts
+
+- **311 complaints:** Nighttime counts use the complaint creation date and time. Noise counts match complaint types containing “noise.” Disturbance counts match types containing “disorder” or “disturb.” These text matches may miss other relevant categories.
+- **Reported crimes:** Nighttime counts use the reported incident start date and time. The file also includes counts for offense labels matching assault, harassment, and robbery. Records without a usable matching time are excluded from the nighttime counts.
+- **NYPD calls for service:** Nighttime counts use the call-entry timestamp. Many older incident-time fields were malformed. These records include entries initiated by police as well as calls from the public.
+- **EMS dispatches and traffic collisions:** Counts cover the 8:00 p.m. to 4:00 a.m. night.
+- **Arrests and dog bites:** Counts cover the **calendar date shown in the row**, not the night, because the datasets used do not provide a usable incident time.
+
+Records without a recognized borough are excluded from the borough counts. A borough-night with no matching returned records was assigned a count of zero. A zero does not prove the source data was complete for that night.
+
+## Moon and weather
+
+Moon illumination and exact primary-phase times came from the U.S. Naval Observatory. Illumination is measured at **noon Eastern Standard Time**—which is 1:00 p.m. local daylight time when daylight saving time is in effect. The broad phase label, nearest full moon, and hours between the full moon and the start of the night were calculated from the observatory’s data.
+
+Weather came from Open-Meteo for one New York City location and was applied to all five boroughs. Temperature and cloud cover were averaged across the night’s hourly values; precipitation was summed.
+
+## Other calculated fields
+
+The table includes weekday, weekend, observed U.S. federal holiday, and the previous night’s noise-complaint count. The first night has no previous-night count in the file.
+
+The table does **not** assign the proposal’s high-chaos label. That threshold should be calculated from training data only. Recorded nighttime weather and same-night outcomes are not information available at the start of the night and should be handled accordingly when building a prediction model.
