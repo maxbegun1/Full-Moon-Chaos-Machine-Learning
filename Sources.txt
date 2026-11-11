@@ -1,0 +1,22 @@
+One important thing: you need daily or hourly data, not just monthly crime statistics. That's why NYC's police incident data could actually be more useful than the FBI's national crime API for this project.
+Best APIs and datasets to combine
+
+
+NYC 311 complaints	Noise, parties, fighting-related complaints, public disturbances, rats, strange behavior. 
+NYC Open Data
+NYPD Crime Reports	Assaults, harassment, robberies, and other reported crimes, with dates and times. 
+NYC Open Data
+NYPD 911 Calls	Whether emergency calls, especially disturbance calls, increase during full moons. 
+NYC Open Data
+NYPD Arrests	Whether arrests for certain crimes become more common. 
+NYC Open Data
+NYC EMS Dispatch	Whether medical emergencies increase, using emergency call categories and timestamps. 
+NYC Open Data
+NYC Traffic Collisions	Whether more car crashes occur during full moons. 
+Crashes
+NYC Dog Bites	Do dogs actually bite more people during a full moon? 
+NYC Open Data
+Open-Meteo Historical Weather	Temperature, rainfall, cloud cover, and other weather variables that could explain changes in behavior. 
+Open Meteo
+US Naval Observatory Moon API	Exact full moon dates and times, plus lunar illumination. 
+US Naval Observatory
