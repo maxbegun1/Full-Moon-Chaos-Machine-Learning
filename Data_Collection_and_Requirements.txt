@@ -1,0 +1,9 @@
+Data Collection and Project Requirements
+
+Our dataset was assembled from multiple public sources: NYC 311, NYPD crime complaints, calls for service, arrests, EMS dispatches, traffic collisions, dog bites, historical weather, and lunar data. We made multiple requests by dataset and year, then joined the results by date and borough.
+
+The cleaning required aligning different date and time fields, defining an overnight period, standardizing borough names, and accounting for sources that provide dates but not usable times. For the NYC incident data, we used API queries to return grouped counts rather than downloading every individual record.
+
+The finished dataset has one row per borough-night, covering nights beginning January 1, 2020 through December 30, 2025. Each night runs from 8:00 p.m. until 4:00 a.m. the next day and is labeled with the date the night starts. Arrests and dog bites are exceptions: their counts cover the calendar date shown in the row because the sources do not provide a usable time.
+
+The final CSV is a combined, aggregated dataset. It was not available as a single ready-made file; it was built from separate sources and multiple requests. The original incident records and all of their fields are not included in the final CSV.
